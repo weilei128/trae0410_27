@@ -1,4 +1,7 @@
-/Users/weilei/Desktop/traeTest/trae0410娴嬭瘯妗堜緥/鐢ㄦ埛淇℃伅绠＄悊/backend/src/main/java/com/example/usermanagement/model/User.java
-/Users/weilei/Desktop/traeTest/trae0410娴嬭瘯妗堜緥/鐢ㄦ埛淇℃伅绠＄悊/backend/src/main/java/com/example/usermanagement/controller/UserController.java
-/Users/weilei/Desktop/traeTest/trae0410娴嬭瘯妗堜緥/鐢ㄦ埛淇℃伅绠＄悊/backend/src/main/java/com/example/usermanagement/UserManagementApplication.java
-/Users/weilei/Desktop/traeTest/trae0410娴嬭瘯妗堜緥/鐢ㄦ埛淇℃伅绠＄悊/backend/src/main/java/com/example/usermanagement/util/JsonFileUtil.java
+E:\deepseekApi\重构\02\dogfood\backend\src\main\java\com\example\usermanagement\controller\UserController.java
+E:\deepseekApi\重构\02\dogfood\backend\src\main\java\com\example\usermanagement\util\JsonFileUtil.java
+E:\deepseekApi\重构\02\dogfood\backend\src\main\java\com\example\usermanagement\service\UserService.java
+E:\deepseekApi\重构\02\dogfood\backend\src\main\java\com\example\usermanagement\model\User.java
+E:\deepseekApi\重构\02\dogfood\backend\src\main\java\com\example\usermanagement\repository\UserRepository.java
+E:\deepseekApi\重构\02\dogfood\backend\src\main\java\com\example\usermanagement\UserManagementApplication.java
+E:\deepseekApi\重构\02\dogfood\backend\src\main\java\com\example\usermanagement\common\Result.java

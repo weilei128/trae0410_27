@@ -1,25 +1,37 @@
 import axios from 'axios'
+import { API_BASE_URL } from '../constants'
 
-const API_BASE_URL = '/api/users'
+const apiClient = axios.create({
+  baseURL: API_BASE_URL,
+  timeout: 10000
+})
+
+apiClient.interceptors.response.use(
+  response => response.data,
+  error => {
+    console.error('API 请求错误:', error)
+    return Promise.reject(error)
+  }
+)
 
 export default {
   getAllUsers() {
-    return axios.get(API_BASE_URL)
+    return apiClient.get('')
   },
-  
+
   getUserById(id) {
-    return axios.get(`${API_BASE_URL}/${id}`)
+    return apiClient.get(`/${id}`)
   },
-  
+
   createUser(user) {
-    return axios.post(API_BASE_URL, user)
+    return apiClient.post('', user)
   },
-  
+
   updateUser(id, user) {
-    return axios.put(`${API_BASE_URL}/${id}`, user)
+    return apiClient.put(`/${id}`, user)
   },
-  
+
   deleteUser(id) {
-    return axios.delete(`${API_BASE_URL}/${id}`)
+    return apiClient.delete(`/${id}`)
   }
 }
