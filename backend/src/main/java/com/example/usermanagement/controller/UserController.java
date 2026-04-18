@@ -1,71 +1,54 @@
 package com.example.usermanagement.controller;
 
-import com.example.usermanagement.model.User;
-import com.example.usermanagement.util.JsonFileUtil;
+import com.example.usermanagement.common.Result;
+import com.example.usermanagement.dto.UserDTO;
+import com.example.usermanagement.entity.User;
+import com.example.usermanagement.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Comparator;
+import javax.validation.Valid;
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/users")
 @CrossOrigin(origins = "*")
 public class UserController {
-
+    
+    private final UserService userService;
+    
     @Autowired
-    private JsonFileUtil jsonFileUtil;
-
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
+    
     @GetMapping
-    public List<User> getAllUsers() {
-        return jsonFileUtil.readUsers();
+    public Result<List<User>> getAllUsers() {
+        List<User> users = userService.getAllUsers();
+        return Result.success(users);
     }
-
+    
     @GetMapping("/{id}")
-    public User getUserById(@PathVariable Long id) {
-        List<User> users = jsonFileUtil.readUsers();
-        return users.stream()
-                .filter(u -> u.getId().equals(id))
-                .findFirst()
-                .orElse(null);
+    public Result<User> getUserById(@PathVariable Long id) {
+        User user = userService.getUserById(id);
+        return Result.success(user);
     }
-
+    
     @PostMapping
-    public User createUser(@RequestBody User user) {
-        List<User> users = jsonFileUtil.readUsers();
-        Long maxId = users.stream()
-                .mapToLong(User::getId)
-                .max()
-                .orElse(0L);
-        user.setId(maxId + 1);
-        users.add(user);
-        jsonFileUtil.writeUsers(users);
-        return user;
+    public Result<User> createUser(@Valid @RequestBody UserDTO userDTO) {
+        User user = userService.createUser(userDTO);
+        return Result.success("创建用户成功", user);
     }
-
+    
     @PutMapping("/{id}")
-    public User updateUser(@PathVariable Long id, @RequestBody User userDetails) {
-        List<User> users = jsonFileUtil.readUsers();
-        Optional<User> userOptional = users.stream()
-                .filter(u -> u.getId().equals(id))
-                .findFirst();
-        
-        if (userOptional.isPresent()) {
-            User user = userOptional.get();
-            user.setName(userDetails.getName());
-            user.setAge(userDetails.getAge());
-            user.setEmail(userDetails.getEmail());
-            jsonFileUtil.writeUsers(users);
-            return user;
-        }
-        return null;
+    public Result<User> updateUser(@PathVariable Long id, @Valid @RequestBody UserDTO userDTO) {
+        User user = userService.updateUser(id, userDTO);
+        return Result.success("更新用户成功", user);
     }
-
+    
     @DeleteMapping("/{id}")
-    public void deleteUser(@PathVariable Long id) {
-        List<User> users = jsonFileUtil.readUsers();
-        users.removeIf(u -> u.getId().equals(id));
-        jsonFileUtil.writeUsers(users);
+    public Result<Void> deleteUser(@PathVariable Long id) {
+        userService.deleteUser(id);
+        return Result.success("删除用户成功", null);
     }
 }

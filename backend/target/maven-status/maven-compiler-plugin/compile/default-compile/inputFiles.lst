@@ -1,4 +1,11 @@
-/Users/weilei/Desktop/traeTest/trae0410娴嬭瘯妗堜緥/鐢ㄦ埛淇℃伅绠＄悊/backend/src/main/java/com/example/usermanagement/model/User.java
-/Users/weilei/Desktop/traeTest/trae0410娴嬭瘯妗堜緥/鐢ㄦ埛淇℃伅绠＄悊/backend/src/main/java/com/example/usermanagement/controller/UserController.java
-/Users/weilei/Desktop/traeTest/trae0410娴嬭瘯妗堜緥/鐢ㄦ埛淇℃伅绠＄悊/backend/src/main/java/com/example/usermanagement/UserManagementApplication.java
-/Users/weilei/Desktop/traeTest/trae0410娴嬭瘯妗堜緥/鐢ㄦ埛淇℃伅绠＄悊/backend/src/main/java/com/example/usermanagement/util/JsonFileUtil.java
+E:\deepseekApi\重构\02\kimi\backend\src\main\java\com\example\usermanagement\repository\impl\JsonFileUserRepository.java
+E:\deepseekApi\重构\02\kimi\backend\src\main\java\com\example\usermanagement\repository\UserRepository.java
+E:\deepseekApi\重构\02\kimi\backend\src\main\java\com\example\usermanagement\service\impl\UserServiceImpl.java
+E:\deepseekApi\重构\02\kimi\backend\src\main\java\com\example\usermanagement\UserManagementApplication.java
+E:\deepseekApi\重构\02\kimi\backend\src\main\java\com\example\usermanagement\common\GlobalExceptionHandler.java
+E:\deepseekApi\重构\02\kimi\backend\src\main\java\com\example\usermanagement\service\UserService.java
+E:\deepseekApi\重构\02\kimi\backend\src\main\java\com\example\usermanagement\common\BusinessException.java
+E:\deepseekApi\重构\02\kimi\backend\src\main\java\com\example\usermanagement\common\Result.java
+E:\deepseekApi\重构\02\kimi\backend\src\main\java\com\example\usermanagement\entity\User.java
+E:\deepseekApi\重构\02\kimi\backend\src\main\java\com\example\usermanagement\controller\UserController.java
+E:\deepseekApi\重构\02\kimi\backend\src\main\java\com\example\usermanagement\dto\UserDTO.java

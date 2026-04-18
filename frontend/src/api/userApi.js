@@ -1,25 +1,25 @@
-import axios from 'axios'
+import request from '../utils/request'
 
-const API_BASE_URL = '/api/users'
-
-export default {
+export const userApi = {
   getAllUsers() {
-    return axios.get(API_BASE_URL)
+    return request.get('/')
   },
   
   getUserById(id) {
-    return axios.get(`${API_BASE_URL}/${id}`)
+    return request.get(`/${id}`)
   },
   
   createUser(user) {
-    return axios.post(API_BASE_URL, user)
+    return request.post('/', user)
   },
   
   updateUser(id, user) {
-    return axios.put(`${API_BASE_URL}/${id}`, user)
+    return request.put(`/${id}`, user)
   },
   
   deleteUser(id) {
-    return axios.delete(`${API_BASE_URL}/${id}`)
+    return request.delete(`/${id}`)
   }
 }
+
+export default userApi

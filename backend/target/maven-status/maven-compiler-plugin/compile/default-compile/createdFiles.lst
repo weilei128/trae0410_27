@@ -1,0 +1,12 @@
+com\example\usermanagement\repository\impl\JsonFileUserRepository.class
+com\example\usermanagement\common\BusinessException.class
+com\example\usermanagement\controller\UserController.class
+com\example\usermanagement\dto\UserDTO.class
+com\example\usermanagement\common\Result.class
+com\example\usermanagement\entity\User.class
+com\example\usermanagement\service\impl\UserServiceImpl.class
+com\example\usermanagement\common\GlobalExceptionHandler.class
+com\example\usermanagement\repository\UserRepository.class
+com\example\usermanagement\service\UserService.class
+com\example\usermanagement\UserManagementApplication.class
+com\example\usermanagement\repository\impl\JsonFileUserRepository$1.class
