@@ -3,6 +3,8 @@ package com.example.usermanagement.util;
 import com.example.usermanagement.model.User;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Component;
 
@@ -17,6 +19,7 @@ import java.util.List;
 @Component
 public class JsonFileUtil {
     
+    private static final Logger logger = LoggerFactory.getLogger(JsonFileUtil.class);
     private final ObjectMapper objectMapper = new ObjectMapper();
     private File jsonFile;
 
@@ -30,6 +33,7 @@ public class JsonFileUtil {
             inputStream.close();
             
             this.jsonFile = tempFile;
+            logger.info("初始化JSON文件: {}", tempFile.getAbsolutePath());
         }
         return jsonFile;
     }
@@ -38,11 +42,14 @@ public class JsonFileUtil {
         try {
             File file = getJsonFile();
             if (file.length() == 0) {
+                logger.info("JSON文件为空，返回空列表");
                 return new ArrayList<>();
             }
-            return objectMapper.readValue(file, new TypeReference<List<User>>() {});
+            List<User> users = objectMapper.readValue(file, new TypeReference<List<User>>() {});
+            logger.debug("读取用户数据: {} 条记录", users.size());
+            return users;
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error("读取用户数据失败", e);
             return new ArrayList<>();
         }
     }
@@ -51,8 +58,9 @@ public class JsonFileUtil {
         try {
             File file = getJsonFile();
             objectMapper.writerWithDefaultPrettyPrinter().writeValue(file, users);
+            logger.debug("写入用户数据: {} 条记录", users.size());
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error("写入用户数据失败", e);
         }
     }
 }
